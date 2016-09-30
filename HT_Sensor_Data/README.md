@@ -3,18 +3,9 @@ Link To dataset - http://archive.ics.uci.edu/ml/datasets/Gas+sensors+for+home+ac
 
 This Code  tries to predict  the first column (id_nos)  using all the other attributes. I have replaced the corresponding  id_nos with class  labels from metadata.
 
-The following  are  the  accuracies  are what ive gotten.
-The first  list corresponds to the  accuracies and the second list corresponds to the time taken.
+Based on the paper:
+Ramon Huerta, Thiago Mosqueiro, Jordi Fonollosa, Nikolai Rulkov, Irene Rodriguez-Lujan. Online Decorrelation of Humidity and Temperature in Chemical Sensors for Continuous Monitoring. Chemometrics and Intelligent Laboratory Systems 2016.
 
-Run Results	 for decision tree
-
-[0.9996447767834717, 0.9996304243302786, 0.9996519530100683, 0.999594543197296, 0.9996232481036821, 0.9996770698031561, 0.9995658382909098, 0.9996268362169803, 0.9996519530100683, 0.9996663054632613]
-
-[14.812582015991211, 15.34731411933899, 16.129381895065308, 14.033632040023804, 14.151201963424683, 14.470895051956177, 14.214032173156738, 13.754817962646484, 14.030804872512817, 13.746016025543213]
-
-
-Run Results for random forest
-
-[0.9999174733941399, 0.9999138852808416, 0.999931825847333, 0.9999390020739295, 0.9999282377340347, 0.9999174733941399, 0.9999138852808416, 0.9999390020739295, 0.9999102971675433, 0.999946178300526]
-
-[19.53082799911499, 19.56739091873169, 18.69181799888611, 20.791752815246582, 20.943021059036255, 19.480130910873413, 19.23961591720581, 19.221472024917603, 20.82576012611389, 20.46332097053528]
+The script Cross_validation_on_set.py runs a 5-fold Cross Validation run on the set.
+The first set of runs are using attributes (R1,R2,R3,R4,R5,R6,R7,R8).
+The next set of runs use attributes (R1,R2,R3,R4,R5,R6,R7,R8,Temp,Humidity).
