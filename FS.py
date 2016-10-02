@@ -40,7 +40,7 @@ id_nos = id_nos_new
 df = df.as_matrix();
 X = df[:,1:];
 y = df[:,0];
-
+X = X.astype(np.float)
 y_new = np.empty(y.shape)
 for i in range(len(y)):
     y_new[i] = id_nos[ np.int(y[i]) ]
@@ -53,9 +53,10 @@ tree = DecisionTreeClassifier(criterion='entropy')
 X_fs = np.empty([rows-100,cols])
 
 for i in range(8):
-	diff_H = X[i][9] - X[i-1][9]
-	diff_T = X[i][10] - X[i-1][10]
-	for j in range(len(X)):
-		if (id_no[j] != id_no[j-1]):
+
+	for j in range(rows-101):
+		diff_H = X[j][9] - X[j-1][9]
+		diff_T = X[j][10] - X[j-1][10]
+		if (y[j] != y[j-1]):
 			continue
-		X_fs[i][j] = X[i][j] - X[i][j-1]*exp( beta[i][0]*(diff_H) + beta[i][1]*(diff_H)*(diff_H) + beta[i][2]*(diff_H)*(diff_T))
+		X_fs[j][i] = X[j][i] - X[j-1][i]*exp( beta[i][0]*(diff_H) + beta[i][1]*(diff_H)*(diff_H) + beta[i][2]*(diff_H)*(diff_T))
