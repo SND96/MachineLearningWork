@@ -27,7 +27,8 @@ for i in range(len(id_nos)):
 id_nos = id_nos_new
 
 df = df.as_matrix();
-X = df[:,1:];
+X = df[:,1:];  #includes time column here. Users are warned to remove the column if needed.
+X = X.astype(np.float);
 y = df[:,0];
 
 y_new = np.empty(y.shape)
